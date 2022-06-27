@@ -1,0 +1,84 @@
+<style>
+.custom-row {
+    margin: 1em;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 2px;
+}
+
+.custom-row > :not(:last-child){
+    margin-right: 10px;
+}
+
+.custom-col-1 {
+    grid-column: auto/span 1;
+}
+
+.custom-col-2 {
+    grid-column: auto/span 2;
+}
+
+.custom-col-3 {
+    grid-column: auto/span 3;
+}
+
+.custom-col-4 {
+    grid-column: auto/span 4;
+}
+
+.custom-col-5 {
+    grid-column: auto/span 5;
+}
+
+.custom-col-6 {
+    grid-column: auto/span 6;
+}
+
+.custom-custom-col-8 {
+    grid-column: auto/span 8;
+}
+
+.custom-col-9 {
+    grid-column: auto/span 9;
+}
+
+.custom-col-10 {
+    grid-column: auto/span 10;
+}
+
+.custom-col-11 {
+    grid-column: auto/span 11;
+}
+
+.custom-col-12 {
+    grid-column: auto/span 12;
+}
+
+.custom-row-2 {
+    grid-row: auto/span 2;
+}
+</style>
+
+<div class="custom-row">
+    <div class="custom-col-6">
+        <label for="inputName">Nome</label>
+        <input type="text" id="inputName" class="form-control" placeholder="John" required>
+    </div>
+
+    <div class="custom-col-3">
+        <label for="inputName">CPF</label>
+        <input type="text" id="inputName" class="form-control" placeholder="John" required>
+    </div>
+
+    <div class="custom-col-3">
+        <label for="inputName">RG</label>
+        <input type="text" id="inputName" class="form-control" placeholder="John" required>
+    </div>
+</div>
+
+<div class="custom-row">
+    <div class="custom-col-12">
+        <label for="inputName">Razao Social</label>
+        <input type="text" id="inputName" class="form-control" placeholder="John" required>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SisNec_Cadastro de Equipamentos</title>
+        <link rel="stylesheet" type="text/css" href="../../style.css" />
+        <link rel="stylesheet" type="text/css" href="../../normalize.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="../../include_html.js"></script>
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <div class="wrapper__container">
+                <div w3-include-html="../../components/navbar/navbar_items.html"></div>
+
+                <div class="container__main_content">
+                    <div class="main_content__header"><h3>GESTAO DE RASTREAMENTO</h3></div>
+                    <div class="main_content__info">
+                        <div class="info__header is-text-centered">
+                            <h4>Cadastro de Equipamento</h4>
+                        </div>
+                        <div class="info__forms">
+                            <form action="pastadestino.php" method="POST">
+                                <div class="row">
+                                    <div class="form-group col-md-2">
+                                        <label class="col-form-label-sm" for="inputEquipamento">Equipamento</label>
+                                        <select id="inputEquipamento" class="form-control" required>
+                                            <option selected hidden>Escolha...</option>
+                                            <option value="satelital">Satelital</option>
+                                            <option value="gsm">GSM</option>
+                                            <option value="hibrido">Híbrido</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="col-form-label-sm" for="inputSerial">Serial</label>
+                                        <input type="text" id="inputSerial" class="form-control" placeholder="Serial" required>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="col-form-label-sm" for="inputModelo">Modelo</label>
+                                        <select id="inputModelo" class="form-control" required>
+                                            <option selected hidden>Escolha...</option>
+                                            <option value="SmartOne">SmartOne C</option>
+                                            <option value="v02">V02</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label class="col-form-label-sm" for="inputCusto">Preço custo</label>
+                                        <input type="text" size="5" onKeyUp="mascaraMoeda(this, event)" id="inputCusto" class="form-control" placeholder="Custo" required>
+                                    </div>
+                                </div><p></p>
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div w3-include-html="../../components/footer/footer.html"></div>
+        </div>
+        <script>
+            includeHTML();
+        </script>
+        <script>
+        String.prototype.reverse = function(){
+            return this.split('').reverse().join(''); 
+          };
+          
+          function mascaraMoeda(campo,evento){
+            var tecla = (!evento) ? window.event.keyCode : evento.which;
+            var valor  =  campo.value.replace(/[^\d]+/gi,'').reverse();
+            var resultado  = "";
+            var mascara = "##.###.###,##".reverse();
+            for (var x=0, y=0; x<mascara.length && y<valor.length;) {
+              if (mascara.charAt(x) != '#') {
+                resultado += mascara.charAt(x);
+                x++;
+              } else {
+                resultado += valor.charAt(y);
+                y++;
+                x++;
+              }
+            }
+            campo.value = resultado.reverse();
+          }</script>
+    </body>
+</html>

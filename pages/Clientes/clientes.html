@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SisNec_Clientes</title>
+        <link rel="stylesheet" type="text/css" href="../../style.css" />
+        <link rel="stylesheet" type="text/css" href="../../normalize.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="../../include_html.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <div class="wrapper__container">
+                <div w3-include-html="../../components/navbar/navbar_items.html"></div>
+
+                <div class="container__main_content">
+                    <div class="main_content__header"><h3>GESTAO DE RASTREAMENTO</h3></div>
+                    <div class="main_content__info">
+                        <div class="info__header is-text-centered">
+                            <h4>Clientes</h4>
+                        </div>
+                        <a href="../../pages/cad_empresa/cad_empresa.html" class="btn btn-primary mb-2">Adicionar</a>
+                        <br/>
+                        <div class="spinner-border spinner-dados text-primary d-none" style="margin-left:50%;" role="status"></div>
+                        <div class="info__content" style="padding-top:0.05rem">
+                          <div id="card-dados-clientes" class="card shadow mt-3 mb-5 d-none">
+                            <h5 class="card-header">Dados clientes</h5>
+                            <div class="card-body">
+                                <div class="container">
+                                  <h4 class="card-title d-inline">Informacoes gerais</h4>
+                                  <div class="p-2"></div>
+                                  <div class="row">
+                                    <div id="col-primeira-dados" class="col-6">
+                                      <p><strong>Nome completo:</strong> <span class="NOME"> $_NOME_$ </span></p>
+                                      <p><strong>CNPJ:</strong> <span class="CNPJ">$_CNPJ_$</span></p>
+                                      <p><strong>Email:</strong> <span class="EMAIL">$_EMAIL_$</span></p>
+                                      <p><strong>Telefone principal:</strong> <span class="TELEFONE_1">$_TELEFONE_$</span></p>
+                                      <p><strong>Telefone secundario:</strong> <span class="TELEFONE_2">$_TELEFONE_$</span></p>
+                                      <p><strong>Nome fantasia:</strong><span class="NOME_FANTASIA">$_VAR_$</span></p>
+                                      <p><strong>Razao social:</strong><span class="RAZAO_SOCIAL">$_VAR_$</span></p>
+                                      <p><strong>Inscricao estadual:</strong><span class="INSCR_ESTAD">$_VAR_$</span></p>
+                                    </div>
+
+                                    <div id="col-segunda-dados" class="col-6">
+                                      <p><strong>Nome completo:</strong> $_NOME_$ </p>
+                                      <p><strong>CNPJ:</strong> $_CNPJ_$ </p>
+                                      <p><strong>Email:</strong> $_EMAIL_$ </p>
+                                      <p><strong>Telefone:</strong> $_TELEFONE_$ </p>
+                                      <p><strong>Endereco:</strong> $_ENDERECO_$ </p>
+                                    </div>
+                                  </div>
+
+                                  <h4 class="card-title d-inline">Pagamentos</h4>
+                                  <div class="p-2"></div>
+                                  <div class="row">
+                                    <div id="col-primeira-dados" class="col-6">
+                                      <p><strong>Nome completo:</strong> <span class="NOME"> $_NOME_$ </span></p>
+                                      <p><strong>CNPJ:</strong> <span class="CNPJ">$_CNPJ_$</span></p>
+                                      <p><strong>Email:</strong> <span class="EMAIL">$_EMAIL_$</span></p>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="card card-tabela-clientes shadow mt-3">
+                            <h5 class="card-header">Clientes</h5>
+                            <div class="container">
+                              <div class="card-body">
+                                  <h5 class="card-title d-inline">Tabela de clientes registrados</h5>
+                                  <button id="btnAtualiza" class="btn btn-success mb-2" style="margin-left:64%;" onclick="showDataToUserTable()">Atualizar</button>
+                                  <div class="spinner-border spinner-table text-success d-none" style="margin-left:64%" role="status"></div>
+                                <table class="table table-bordered text-center">
+                                  <thead>
+                                    <tr class="position-sticky top-0">
+                                      <th scope="col" style="outline:1px solid rgb(218, 218, 218);background-color: white;">Id</th>
+                                      <th scope="col" style="outline:1px solid rgb(218, 218, 218);background-color: white;" >Nome</th>
+                                      <th scope="col" style="outline:1px solid rgb(218, 218, 218);background-color: white;">Email</th>
+                                      <th scope="col" style="outline:1px solid rgb(218, 218, 218);background-color: white;">Telefone principal</th>
+                                      <th scope="col" style="outline:1px solid rgb(218, 218, 218);background-color: white;"> Operacoes </th>
+                                    </tr>
+                                    
+                                  </thead>
+                                  <tbody id="tabelaBody">
+                                    
+                                  </tbody>
+                                </table>
+                              </div>
+                          </div>
+                          </div>
+
+                        </div>
+                    </div>
+              
+                </div>
+
+            </div>
+            <div w3-include-html="../../components/footer/footer.html"></div>
+        </div>
+        <script>
+        includeHTML();
+
+        function handleHttpExceptions(response){
+            let response_data = {
+                status: response.status,
+                statusText: response.statusText,
+                responseText: response.responseText
+            };
+            if(response.status == 200){
+                return response.json();
+            }else{
+                alert("Request has failed! Please check console log!");
+                return JSON.stringify(response_data);
+            }
+        }
+
+        function filterNotDeleted(object){
+            if(object.deleted_at == null && object !== undefined){
+                    return object;
+            }
+        }
+
+        function handleGetSucessfullyData(json){
+            const { data } = json
+            //Verifica se o resultado do data length eh diferente undefined
+            //Caso seja sabemos que o resultado retorna mais de um objeto
+            //Caso contrario um objeto
+            //Implementar COUNT na api para melhor solucionar isso
+            if(data.length !== undefined) {
+              let pessoas_available = data.filter(filterNotDeleted);
+              return pessoas_available;
+            }
+            return filterNotDeleted(data);
+        }
+        
+        async function getPessoaById(id){
+            let response = await fetch('http://localhost/api/v1/pessoas/'+id, 
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/jsonp'
+                },
+            })
+            .then(response => handleHttpExceptions(response))
+            .then(json => handleGetSucessfullyData(json))
+            .catch(err => alert(err));
+            let data = await response;
+            return data;
+        }
+
+        async function getPessoaJuridicaByPessoa(id){
+
+        }
+
+
+        async function getPessoasNome(){
+            console.log("REQUISITANDO...")
+            let response = await fetch('http://localhost/api/v1/pessoas/', 
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/jsonp'
+                },
+              
+            })
+            .then(response => handleHttpExceptions(response))
+            .then(json => handleGetSucessfullyData(json))
+            .catch(err => alert(err));
+            let data = await response;
+            return data;
+        }
+
+        function handleSpinner(btn_name,spinner_name){
+
+        }
+
+        async function showClientInfoDataToUser(id){
+          $('.spinner-dados').removeClass('d-none');
+            getPessoaById(id)
+              .then((data) => {
+                $("#card-dados-clientes").removeClass('d-none');
+                $(".NOME").text(data.nome);
+                $(".EMAIL").text(data.email);
+                $(".TELEFONE_1").text(data.telefone_1);
+                $(".TELEFONE_2").text(data.telefone_2);
+                $(".CNPJ").text(data.p_juridica.cnpj);
+                $(".RAZAO_SOCIAL").text(data.p_juridica.razao_social);
+                $(".INSCR_ESTAD").text(data.p_juridica.inscr_estad);
+                $(".NOME_FANTASIA").text(data.p_juridica.nome_fantasia);
+
+              })
+              .finally(() => {
+                $(".spinner-dados").addClass('d-none');
+              });
+        }
+
+        async function showDataToUserTable(){
+          $("#btnAtualiza").addClass("d-none");
+          $(".spinner-table").removeClass("d-none");
+          getPessoasNome().then(data => {
+                data.forEach(object => {
+                    let [ id, nome, email, telefone ] = [ object.id, object.nome, object.email, object.telefone_1 ];
+                    $("#tabelaBody").append(
+                        `<tr>
+                                    <th scope="row">${id}</th>
+                                    <td>${nome}</td>
+                                    <td>${email}</td>
+                                    <td>${telefone}</td>
+                                    <td colspan="1">
+                                      <div class="row d-flex text-center no-gutters">
+                                        <div class="col-auto">
+                                          <a href="#" class="btn btn-sm btn-info">
+                                            <i class="fa fa-edit"></i>
+                                          </a>
+                                        </div>
+                                        <div class="col-auto">
+                                          <a href="#" class="btn btn-sm btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                          </a>
+                                        </div>
+                                        <div class="col-auto">
+                                          <button onclick="showClientInfoDataToUser(${id})"class="btn btn-sm btn-primary">
+                                            <i class="fa fa-info"></i>
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>`
+                    );
+                });
+            })
+            .finally(() => {
+                $(".spinner-border").addClass("d-none");
+                $("#btnAtualiza").removeClass("d-none");
+            });
+        }
+
+
+        </script>
+    </body>
+</html>
